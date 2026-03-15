@@ -1,13 +1,12 @@
 package com.example.eduskunta.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
-
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -16,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -34,9 +34,8 @@ fun MainScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues),
-            contentPadding = PaddingValues(24.dp),
-            verticalArrangement = Arrangement.SpaceEvenly,
-            horizontalAlignment = Alignment.CenterHorizontally
+            verticalArrangement = Arrangement.SpaceAround,
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             item {
                 Text(
@@ -44,7 +43,7 @@ fun MainScreen(
                     modifier = Modifier,
                     color = MaterialTheme.colorScheme.primary,
                     fontWeight = FontWeight.Bold,
-                    fontSize = 36.sp
+                    fontSize = 30.sp
                 )
                 Text(
                     text = "🇫🇮",
@@ -58,7 +57,14 @@ fun MainScreen(
                         .size(180.dp),
                     tint = MaterialTheme.colorScheme.primary
                 )
-                Button(onClick = onMainClick) {
+                Button(
+                    onClick = onMainClick,
+                    modifier = Modifier.padding(top = 16.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        Color(0xFF003580),
+                        contentColor = Color.White
+                    )
+                ) {
                     Text(text = "Katso kansanedustajat")
                 }
             }

@@ -5,11 +5,17 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
+/**
+ * Room database for the app.
+ */
 @Database(
     entities = [MemberEntity::class],
     version = 1
 )
 
+/**
+ * Abstract class representing the database.
+ */
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun memberDao(): MemberDao
@@ -24,6 +30,9 @@ abstract class AppDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
+        /**
+         * Get the database instance. If it doesn't exist, create it.
+         */
         fun getDatabase(context: Context): AppDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(

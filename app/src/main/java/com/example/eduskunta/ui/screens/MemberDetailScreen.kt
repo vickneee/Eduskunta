@@ -63,7 +63,8 @@ fun MemberDetailScreen(
             LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(24.dp)
+                    .padding(horizontal = 24.dp, vertical = 0.dp),
+                horizontalAlignment = Alignment.Start
             ) {
                 item {
                     /**

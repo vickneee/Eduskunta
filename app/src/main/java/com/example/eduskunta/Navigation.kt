@@ -1,11 +1,10 @@
 package com.example.eduskunta
 
 import androidx.annotation.StringRes
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -17,6 +16,10 @@ import com.example.eduskunta.ui.screens.MemberListScreen
 import com.example.eduskunta.ui.screens.PartyListScreen
 import com.example.eduskunta.ui.viewmodel.EduskuntaViewModel
 
+/**
+ * Enum class representing the different screens in the app.
+ * @property title The string resource ID for the screen's title.
+ */
 enum class Screen(@StringRes val title: Int) {
     MainScreen(title = R.string.app_name),
     PartyList(title = R.string.party_list_title),
@@ -24,6 +27,9 @@ enum class Screen(@StringRes val title: Int) {
     MemberDetail(title = R.string.member_detail_title)
 }
 
+/**
+ * Composable function representing the navigation between the different screens in the app.
+ */
 @Composable
 fun Navigation() {
     val navController: NavHostController = rememberNavController()
@@ -33,10 +39,13 @@ fun Navigation() {
         factory = EduskuntaViewModel.provideFactory(app.repository)
     )
 
+    /**
+     * NavHost containing the different screens.
+     */
     NavHost(
         navController = navController,
         startDestination = Screen.MainScreen.name,
-        modifier = Modifier.padding(16.dp)
+        modifier = Modifier.fillMaxSize()
     ) {
         composable(route = Screen.MainScreen.name) {
             MainScreen(
@@ -47,7 +56,9 @@ fun Navigation() {
             )
         }
 
-        // Screen 2 - Party List Screen
+        /**
+         * Navigation for the different screens.
+         */
         composable(route = Screen.PartyList.name) {
             PartyListScreen(
                 viewModel = viewModel,
@@ -58,7 +69,9 @@ fun Navigation() {
             )
         }
 
-        // Screen 3 - Members by party
+        /**
+         * Navigation for the different screens.
+         */
         composable(route = "${Screen.MemberList.name}/{party}") { backStackEntry ->
             val party = backStackEntry.arguments?.getString("party") ?: ""
             MemberListScreen(
@@ -71,7 +84,9 @@ fun Navigation() {
             )
         }
 
-        // Screen 4 - Member Detail Screen
+        /**
+         * Navigation for the different screens.
+         */
         composable(route = "${Screen.MemberDetail.name}/{personNumber}") { backStackEntry ->
             val personNumber =
                 backStackEntry.arguments?.getString("personNumber")?.toIntOrNull() ?: 0

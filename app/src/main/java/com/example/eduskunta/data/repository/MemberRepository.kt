@@ -5,15 +5,26 @@ import com.example.eduskunta.data.db.MemberDao
 import com.example.eduskunta.data.db.MemberEntity
 import kotlinx.coroutines.flow.Flow
 
+/**
+ * Repository for the member entity.
+ * @property memberDao The DAO for the member entity.
+ * @property apiService The API service for the member entity.
+ */
 class MemberRepository(
     private val memberDao: MemberDao,
     private val apiService: EduskuntaApiService
 ) {
+    /**
+     * Get all members from the database.
+     */
     val allMembers: Flow<List<MemberEntity>> = memberDao.getAllMembers()
 
+    /**
+     * Refresh the members from the API and insert them into the database.
+     */
     suspend fun refreshMembers() {
         try {
-            val members = apiService.getEdustajat()
+            val members = apiService.getMembers()
             val entities = members.map {
                 MemberEntity(
                     personNumber = it.personNumber,
@@ -35,10 +46,16 @@ class MemberRepository(
         }
     }
 
+    /**
+     * Get members by party from the database.
+     */
     fun getMembersByParty(party: String): Flow<List<MemberEntity>> {
         return memberDao.getMembersByParty(party)
     }
 
+    /**
+     * Get member by personNumber from the database.
+     */
     fun getMember(personNumber: Int): Flow<MemberEntity?> {
         return memberDao.getMember(personNumber)
     }

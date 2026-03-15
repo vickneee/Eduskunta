@@ -5,11 +5,21 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
+/**
+ * Base URL for the API.
+ */
 private const val BASE_URL = "https://users.metropolia.fi/~peterh/"
 
+/**
+ * Interface for the API service.
+ */
 interface EduskuntaApiService {
+
+    /**
+     * Get a list of members from the API.
+     */
     @GET("mps.json")
-    suspend fun getEdustajat(): List<MemberEntity>
+    suspend fun getMembers(): List<MemberEntity>
 }
 
 object EduskuntaApi {

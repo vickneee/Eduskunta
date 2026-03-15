@@ -69,7 +69,8 @@ fun MemberDetailScreen(
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
                     }
-                }
+                },
+                modifier = Modifier.padding(horizontal = 24.dp)
             )
         }
     ) { paddingValues ->
@@ -88,7 +89,7 @@ fun MemberDetailScreen(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(paddingValues)
-                    .padding(16.dp),
+                    .padding(horizontal = 48.dp),
                 horizontalAlignment = Alignment.Start
             ) {
                 item {

@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.eduskunta.data.db.MemberEntity
 import com.example.eduskunta.data.db.NoteEntity
-import com.example.eduskunta.repository.MemberRepository
-import com.example.eduskunta.repository.NoteRepository
+import com.example.eduskunta.repositories.MemberRepository
+import com.example.eduskunta.repositories.NoteRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow

@@ -38,6 +38,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.eduskunta.ui.viewmodel.EduskuntaViewModel
+import kotlin.text.replaceFirstChar
 
 /**
  * Screen for displaying the detail of a member.
@@ -118,7 +119,8 @@ fun MemberDetailScreen(
                         style = MaterialTheme.typography.headlineMedium
                     )
                     Spacer(modifier = Modifier.height(8.dp))
-                    Text(text = "Puolue: ${currentMember.party}")
+                    Text(text = "Istumapaikka: ${currentMember.seatNumber}")
+                    Text(text = "Puolue: ${currentMember.party.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }}")
                     Text(text = "Vaalipiiri: ${currentMember.constituency}")
                     Text(text = "Syntynyt: ${currentMember.bornYear}")
                     if (currentMember.minister) {
@@ -180,7 +182,7 @@ fun MemberDetailScreen(
                             .fillMaxWidth()
                             .padding(vertical = 4.dp)
                     ) {
-                        Column(modifier = Modifier.padding(bottom = 36.dp, start = 16.dp, end = 16.dp)) {
+                        Column(modifier = Modifier.padding(16.dp, top = 10.dp, bottom = 20.dp)) {
                             Row(verticalAlignment = Alignment.CenterVertically) {
                                 Text(
                                     text = if (note.positive) "+" else "-",

@@ -1,4 +1,4 @@
-package com.example.eduskunta.repository
+package com.example.eduskunta.repositories
 
 import com.example.eduskunta.data.db.NoteDao
 import com.example.eduskunta.data.db.NoteEntity

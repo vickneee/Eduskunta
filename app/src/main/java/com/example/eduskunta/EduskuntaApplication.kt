@@ -2,8 +2,8 @@ package com.example.eduskunta
 
 import android.app.Application
 import com.example.eduskunta.data.db.AppDatabase
-import com.example.eduskunta.repository.OfflineMemberRepository
-import com.example.eduskunta.repository.OfflineNoteRepository
+import com.example.eduskunta.repositories.OfflineMemberRepository
+import com.example.eduskunta.repositories.OfflineNoteRepository
 
 /**
  * Application class for the Eduskunta app.

@@ -3,8 +3,9 @@
 Eduskunta App is a simple Android application that demonstrates using navigation, Retrofit, and Room in a Kotlin + Jetpack Compose project. The app shows a list of Finnish Parliament members and allows viewing their details.
 
 ## Features
-- List of members with basic info (name, party, constituency)
+- Two-level browsing: Party → Members list
 - Member detail screen with photo, party, constituency, minister status, and Twitter handle
+- Notes per member with +/- indicator and text
 - Offline support with **Retrofit** and **Room database**
 - Smooth navigation between screens using **Jetpack Compose Navigation** 
 - Simple and responsive UI
@@ -45,7 +46,7 @@ EduskuntaApp/
 ├─ data/
 │  ├─ api/        <-- Retrofit service
 │  └─ db/         <-- Room database, Entity & DAO
-├─ repository/    <-- Handles data from API & DB
+├─ repositories/ <-- OfflineMemberRepository, OfflineNoteRepository <-- Handles data from DB 
 ├─ ui/
 │  ├─ screens/    <-- MainScreen, PartyListScreen, MemberListScreen, MemberDetailScreen
 │  └─ viewmodel/  <-- ViewModel + StateFlow

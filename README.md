@@ -33,7 +33,7 @@ Eduskunta App is a simple Android application that demonstrates using navigation
 
 ## Video link
 
-
+[Video link](https://www.youtube.com/shorts/hM7gmWS9co8)
 
 ## Android App structure:
 

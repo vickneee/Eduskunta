@@ -55,7 +55,7 @@ fun MemberDetailScreen(
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(paddingValues).padding(horizontal = 24.dp),
+                    .padding(paddingValues).padding(horizontal = 34.dp),
                 contentAlignment = Alignment.Center
             ) {
                 CircularProgressIndicator()
@@ -64,7 +64,7 @@ fun MemberDetailScreen(
             LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(paddingValues).padding(horizontal = 34.dp),
+                    .padding(paddingValues).padding(horizontal = 44.dp),
                 horizontalAlignment = Alignment.Start
             ) {
                 item {

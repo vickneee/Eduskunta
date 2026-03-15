@@ -34,6 +34,10 @@ Eduskunta App is a simple Android application that demonstrates using navigation
 <img src="./res/Screenshot_20260315_185019.png" width="35%" alt="Android Mobile App Screen - Eduskunta Navigations screen"/>
 </p>
 
+## Video link
+
+
+
 ## Android App structure:
 
 ```text

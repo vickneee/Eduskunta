@@ -47,7 +47,7 @@ fun MemberListScreen(
             )
         }
     ) { paddingValues ->
-        LazyColumn(modifier = Modifier.padding(paddingValues).padding(horizontal = 24.dp)) {
+        LazyColumn(modifier = Modifier.padding(paddingValues).padding(horizontal = 34.dp)) {
             items(filteredMembers) { member ->
                 ListItem(
                     headlineContent = { Text("${member.first} ${member.last}") },

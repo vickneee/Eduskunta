@@ -52,7 +52,7 @@ fun PartyListScreen(
                 CircularProgressIndicator(modifier = Modifier.padding(16.dp))
             }
         } else {
-            LazyColumn(modifier = Modifier.padding(paddingValues).padding(horizontal = 24.dp)) {
+            LazyColumn(modifier = Modifier.padding(paddingValues).padding(horizontal = 34.dp)) {
                 items(parties) { party ->
                     ListItem(
                         headlineContent = { Text(party.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }) },

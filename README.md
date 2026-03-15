@@ -44,8 +44,11 @@ EduskuntaApp/
 ├─ repository/    <-- Handles data from API & DB
 ├─ ui/
 │  ├─ screens/    <-- MainScreen, MemberDetailScreen
-│  └─ components/ <-- Reusable UI components
-└─ viewmodel/     <-- State management using ViewModel + StateFlow
+│  ├─ components/ <-- Reusable UI components
+│  └─ viewmodel/  <-- ViewModel + StateFlow
+├─ EduskuntaApplication.kt
+├─ MainActivity.kt
+└─ Navigation.kt
 ```
 
 ### Notes

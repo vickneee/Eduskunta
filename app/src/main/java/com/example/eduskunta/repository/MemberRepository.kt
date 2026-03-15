@@ -1,4 +1,4 @@
-package com.example.eduskunta.data.repository
+package com.example.eduskunta.repository
 
 import com.example.eduskunta.data.api.EduskuntaApiService
 import com.example.eduskunta.data.db.MemberDao

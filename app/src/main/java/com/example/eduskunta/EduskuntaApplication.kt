@@ -3,7 +3,7 @@ package com.example.eduskunta
 import android.app.Application
 import com.example.eduskunta.data.api.EduskuntaApi
 import com.example.eduskunta.data.db.AppDatabase
-import com.example.eduskunta.data.repository.MemberRepository
+import com.example.eduskunta.repository.MemberRepository
 
 /**
  * Application class for the Eduskunta app.

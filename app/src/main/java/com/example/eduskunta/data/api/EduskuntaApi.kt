@@ -1,6 +1,6 @@
 package com.example.eduskunta.data.api
 
-import com.example.eduskunta.data.db.Edustaja
+import com.example.eduskunta.data.db.MemberEntity
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -9,7 +9,7 @@ private const val BASE_URL = "https://users.metropolia.fi/~peterh/"
 
 interface EduskuntaApiService {
     @GET("mps.json")
-    suspend fun getEdustajat(): List<Edustaja>
+    suspend fun getEdustajat(): List<MemberEntity>
 }
 
 object EduskuntaApi {

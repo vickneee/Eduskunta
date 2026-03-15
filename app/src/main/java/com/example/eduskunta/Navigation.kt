@@ -28,7 +28,7 @@ enum class Screen(@StringRes val title: Int) {
 fun Navigation() {
     val navController: NavHostController = rememberNavController()
     val context = LocalContext.current
-    val app = context.applicationContext as Eduskunta
+    val app = context.applicationContext as EduskuntaApplication
     val viewModel: EduskuntaViewModel = viewModel(
         factory = EduskuntaViewModel.provideFactory(app.repository)
     )

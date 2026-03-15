@@ -43,8 +43,7 @@ EduskuntaApp/
 │  └─ db/         <-- Room database & DAO
 ├─ repository/    <-- Handles data from API & DB
 ├─ ui/
-│  ├─ screens/    <-- MainScreen, MemberDetailScreen
-│  ├─ components/ <-- Reusable UI components
+│  ├─ screens/    <-- MainScreen, PartyListScreen, MemberListScreen, MemberDetailScreen
 │  └─ viewmodel/  <-- ViewModel + StateFlow
 ├─ EduskuntaApplication.kt
 ├─ MainActivity.kt

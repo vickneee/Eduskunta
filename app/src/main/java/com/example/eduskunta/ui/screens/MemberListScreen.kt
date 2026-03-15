@@ -22,6 +22,13 @@ import androidx.compose.ui.unit.dp
 import com.example.eduskunta.ui.viewmodel.EduskuntaViewModel
 import kotlin.text.replaceFirstChar
 
+/**
+ * Screen for displaying the list of members for a given party.
+ * @param party The party to display the members for.
+ * @param onMemberClick The function to be called when a member is clicked.
+ * @param onBack The function to be called when the back button is pressed.
+ * @param viewModel The view model for the app.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MemberListScreen(
@@ -31,8 +38,10 @@ fun MemberListScreen(
     viewModel: EduskuntaViewModel,
     modifier: Modifier = Modifier
 ) {
-    val members by viewModel.members.collectAsState()
-    val filteredMembers = members.filter { it.party == party }
+    /**
+     * State of the members.
+     */
+    val members by viewModel.getMembersByParty(party).collectAsState(initial = emptyList())
 
     Scaffold(
         topBar = {
@@ -48,7 +57,7 @@ fun MemberListScreen(
         }
     ) { paddingValues ->
         LazyColumn(modifier = Modifier.padding(paddingValues).padding(horizontal = 34.dp)) {
-            items(filteredMembers) { member ->
+            items(members) { member ->
                 ListItem(
                     headlineContent = { Text("${member.first} ${member.last}") },
                     supportingContent = { Text(member.constituency) },

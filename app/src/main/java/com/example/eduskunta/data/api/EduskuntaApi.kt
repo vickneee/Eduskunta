@@ -22,6 +22,9 @@ interface EduskuntaApiService {
     suspend fun getMembers(): List<MemberEntity>
 }
 
+/**
+ * Singleton object for the API service.
+ */
 object EduskuntaApi {
     private val retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())

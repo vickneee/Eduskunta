@@ -36,7 +36,7 @@ fun Navigation() {
     val context = LocalContext.current
     val app = context.applicationContext as EduskuntaApplication
     val viewModel: EduskuntaViewModel = viewModel(
-        factory = EduskuntaViewModel.provideFactory(app.repository)
+        factory = EduskuntaViewModel.provideFactory(app.memberRepository, app.noteRepository)
     )
 
     /**

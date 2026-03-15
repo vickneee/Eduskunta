@@ -9,8 +9,9 @@ import androidx.room.RoomDatabase
  * Room database for the app.
  */
 @Database(
-    entities = [MemberEntity::class],
-    version = 1
+    entities = [MemberEntity::class, NoteEntity::class],
+    version = 2,
+    exportSchema = false
 )
 
 /**
@@ -19,6 +20,7 @@ import androidx.room.RoomDatabase
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun memberDao(): MemberDao
+    abstract fun noteDao(): NoteDao
 
     /**
      * Singleton instance of the database.
@@ -39,7 +41,9 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "eduskunta_database"
-                ).build()
+                )
+                    .fallbackToDestructiveMigration(dropAllTables = true)
+                    .build()
                 INSTANCE = instance
                 instance
             }

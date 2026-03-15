@@ -24,6 +24,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.eduskunta.ui.viewmodel.EduskuntaViewModel
 
+/**
+ * Screen for displaying the list of parties.
+ * @param onPartyClick The function to be called when a party is clicked.
+ * @param onBack The function to be called when the back button is pressed.
+ * @param viewModel The view model for the app.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PartyListScreen(
@@ -31,6 +37,9 @@ fun PartyListScreen(
     onBack: () -> Unit,
     viewModel: EduskuntaViewModel,
 ) {
+    /**
+     * State of the members.
+     */
     val members by viewModel.members.collectAsState()
     val parties = members.map { it.party }.distinct().sorted()
 

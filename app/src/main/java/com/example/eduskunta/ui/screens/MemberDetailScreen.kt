@@ -38,7 +38,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.eduskunta.ui.viewmodel.EduskuntaViewModel
-import kotlin.text.replaceFirstChar
 
 /**
  * Screen for displaying the detail of a member.

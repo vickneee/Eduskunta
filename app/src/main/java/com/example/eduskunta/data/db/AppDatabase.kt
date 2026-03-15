@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.eduskunta.data.db.AppDatabase.Companion.getDatabase
 import com.example.eduskunta.data.db.daos.MemberDao
 import com.example.eduskunta.data.db.daos.NoteDao
 import com.example.eduskunta.data.db.entities.MemberEntity

@@ -20,7 +20,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.eduskunta.ui.viewmodel.EduskuntaViewModel
-import kotlin.text.replaceFirstChar
 
 /**
  * Screen for displaying the list of members for a given party.

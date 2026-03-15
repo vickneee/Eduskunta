@@ -23,6 +23,11 @@ import androidx.compose.ui.unit.sp
 import com.example.eduskunta.R
 import com.example.eduskunta.ui.viewmodel.EduskuntaViewModel
 
+/**
+ * Main screen of the app.
+ * @param viewModel The view model for the app.
+ * @param onMainClick The function to be called when the main button is clicked.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(

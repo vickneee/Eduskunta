@@ -105,17 +105,17 @@ class EduskuntaViewModel(
 
     /**
      * Factory for creating [EduskuntaViewModel].
-     * @param repository The repository to use for the view model.
+     * @param memberRepository The repository to use for the view model.
      * @param noteRepository The repository to use for the notes.
      */
     companion object {
         fun provideFactory(
-            repository: MemberRepository,
+            memberRepository: MemberRepository,
             noteRepository: NoteRepository
         ): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
             @Suppress("UNCHECKED_CAST")
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                return EduskuntaViewModel(repository, noteRepository) as T
+                return EduskuntaViewModel(memberRepository, noteRepository) as T
             }
         }
     }

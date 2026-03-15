@@ -1,9 +1,10 @@
-package com.example.eduskunta.data.db
+package com.example.eduskunta.data.db.daos
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.example.eduskunta.data.db.entities.MemberEntity
 import kotlinx.coroutines.flow.Flow
 
 /**
@@ -16,7 +17,7 @@ interface MemberDao {
      * Insert a list of members into
      * the database. If the member already exists, replace it.
      */
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.Companion.REPLACE)
     suspend fun insertAll(members: List<MemberEntity>)
 
     /**

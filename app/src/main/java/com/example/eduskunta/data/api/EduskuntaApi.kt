@@ -1,6 +1,6 @@
 package com.example.eduskunta.data.api
 
-import com.example.eduskunta.data.db.MemberEntity
+import com.example.eduskunta.data.db.entities.MemberEntity
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET

@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.example.eduskunta.data.db.MemberEntity
-import com.example.eduskunta.data.db.NoteEntity
+import com.example.eduskunta.data.db.entities.MemberEntity
+import com.example.eduskunta.data.db.entities.NoteEntity
 import com.example.eduskunta.repositories.MemberRepository
 import com.example.eduskunta.repositories.NoteRepository
 import kotlinx.coroutines.flow.Flow
@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import java.time.LocalDate
 
 /**
  * View model for the Eduskunta app.
@@ -75,7 +76,7 @@ class EduskuntaViewModel(
             noteRepository.addNote(
                 NoteEntity(
                     personNumber = personNumber,
-                    date = java.time.LocalDate.now().toString(),
+                    date = LocalDate.now().toString(),
                     text = text,
                     positive = positive
                 )

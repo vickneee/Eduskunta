@@ -1,7 +1,7 @@
 package com.example.eduskunta.repositories
 
-import com.example.eduskunta.data.db.NoteDao
-import com.example.eduskunta.data.db.NoteEntity
+import com.example.eduskunta.data.db.daos.NoteDao
+import com.example.eduskunta.data.db.entities.NoteEntity
 import kotlinx.coroutines.flow.Flow
 
 /**

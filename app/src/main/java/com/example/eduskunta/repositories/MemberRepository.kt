@@ -1,6 +1,6 @@
 package com.example.eduskunta.repositories
 
-import com.example.eduskunta.data.db.MemberEntity
+import com.example.eduskunta.data.db.entities.MemberEntity
 import kotlinx.coroutines.flow.Flow
 
 /**

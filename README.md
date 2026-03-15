@@ -62,6 +62,8 @@ EduskuntaApp/
 ├─ data/
 │  ├─ api/               <-- Retrofit service & EduskuntaApi
 │  └─ db/                <-- Room database, Entities (MemberEntity, NoteEntity) & DAOs
+│     ├─ entities/        
+│     └─ daos/              
 ├─ repositories/
 │  ├─ MemberRepository   <-- interface
 │  ├─ OfflineMemberRepository <-- fetches from API, caches in Room

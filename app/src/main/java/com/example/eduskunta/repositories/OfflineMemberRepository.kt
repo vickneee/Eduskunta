@@ -1,8 +1,8 @@
 package com.example.eduskunta.repositories
 
 import com.example.eduskunta.data.api.EduskuntaApi
-import com.example.eduskunta.data.db.MemberDao
-import com.example.eduskunta.data.db.MemberEntity
+import com.example.eduskunta.data.db.daos.MemberDao
+import com.example.eduskunta.data.db.entities.MemberEntity
 import kotlinx.coroutines.flow.Flow
 
 /**

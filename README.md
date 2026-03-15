@@ -44,15 +44,24 @@ Eduskunta App is a simple Android application that demonstrates using navigation
 ```text
 EduskuntaApp/
 ├─ data/
-│  ├─ api/        <-- Retrofit service
-│  └─ db/         <-- Room database, Entity & DAO
-├─ repositories/ <-- OfflineMemberRepository, OfflineNoteRepository <-- Handles data from DB 
+│  ├─ api/               <-- Retrofit service & EduskuntaApi
+│  └─ db/                <-- Room database, Entities (MemberEntity, NoteEntity) & DAOs
+├─ repositories/
+│  ├─ MemberRepository   <-- interface
+│  ├─ OfflineMemberRepository <-- fetches from API, caches in Room
+│  ├─ NoteRepository     <-- interface
+│  └─ OfflineNoteRepository  <-- saves/loads notes from Room
 ├─ ui/
-│  ├─ screens/    <-- MainScreen, PartyListScreen, MemberListScreen, MemberDetailScreen
-│  └─ viewmodel/  <-- ViewModel + StateFlow
-├─ EduskuntaApplication.kt
+│  ├─ screens/
+│  │  ├─ MainScreen
+│  │  ├─ PartyListScreen
+│  │  ├─ MemberListScreen
+│  │  └─ MemberDetailScreen  <-- photo, info, +/- notes
+│  └─ viewmodel/
+│     └─ EduskuntaViewModel  <-- StateFlow, shared across all screens
+├─ EduskuntaApplication.kt          <-- Application class, initializes DB & repositories
 ├─ MainActivity.kt
-└─ Navigation.kt
+└─ Navigation.kt         <-- all routes defined here
 ```
 
 ### Notes

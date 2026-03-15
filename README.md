@@ -40,7 +40,7 @@ Eduskunta App is a simple Android application that demonstrates using navigation
 EduskuntaApp/
 ├─ data/
 │  ├─ api/        <-- Retrofit service
-│  └─ db/         <-- Room database & DAO
+│  └─ db/         <-- Room database, Entity & DAO
 ├─ repository/    <-- Handles data from API & DB
 ├─ ui/
 │  ├─ screens/    <-- MainScreen, PartyListScreen, MemberListScreen, MemberDetailScreen

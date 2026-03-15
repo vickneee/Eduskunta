@@ -1,4 +1,4 @@
-package com.example.eduskunta.data
+package com.example.eduskunta.data.db
 
 data class Edustaja(
     val personNumber: Int,

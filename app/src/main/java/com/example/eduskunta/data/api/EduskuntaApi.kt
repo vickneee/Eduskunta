@@ -1,6 +1,6 @@
-package com.example.eduskunta
+package com.example.eduskunta.data.api
 
-import com.example.eduskunta.data.Edustaja
+import com.example.eduskunta.data.db.Edustaja
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET

@@ -4,6 +4,7 @@ import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
@@ -26,7 +27,11 @@ enum class Screen(@StringRes val title: Int) {
 @Composable
 fun Navigation() {
     val navController: NavHostController = rememberNavController()
-    val viewModel: EduskuntaViewModel = viewModel() // One instance of EduskuntaViewModel
+    val context = LocalContext.current
+    val app = context.applicationContext as Eduskunta
+    val viewModel: EduskuntaViewModel = viewModel(
+        factory = EduskuntaViewModel.provideFactory(app.repository)
+    )
 
     NavHost(
         navController = navController,
@@ -37,13 +42,13 @@ fun Navigation() {
             MainScreen(
                 viewModel = viewModel,
                 onMainClick = {
-                    navController.navigate("${Screen.PartyList}")
+                    navController.navigate(Screen.PartyList.name)
                 }
             )
         }
 
         // Screen 2 - Party List Screen
-        composable(route = Screen.PartyList.name) { backStackEntry ->
+        composable(route = Screen.PartyList.name) {
             PartyListScreen(
                 viewModel = viewModel,
                 onPartyClick = { party ->

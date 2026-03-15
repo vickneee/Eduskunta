@@ -2,34 +2,58 @@ package com.example.eduskunta.ui.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.example.eduskunta.data.api.EduskuntaApi
-import com.example.eduskunta.data.db.Edustaja
-import kotlinx.coroutines.flow.MutableStateFlow
+import com.example.eduskunta.data.db.MemberEntity
+import com.example.eduskunta.data.repository.MemberRepository
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
-class EduskuntaViewModel : ViewModel() {
-    private val _edustajat = MutableStateFlow<List<Edustaja>>(emptyList())
-    val edustajat: StateFlow<List<Edustaja>> = _edustajat
+class EduskuntaViewModel(private val repository: MemberRepository) : ViewModel() {
+
+    val edustajat: StateFlow<List<MemberEntity>> = repository.allMembers.stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.WhileSubscribed(5000),
+        initialValue = emptyList()
+    )
 
     init {
-        getEdustajat()
+        refreshData()
     }
 
-    fun getEdustajat() {
-        // GlobalScope.launch launches a new coroutine in the global
+    private fun refreshData() {
         viewModelScope.launch {
             try {
-                val edustajatResult = EduskuntaApi.RETROFIT_SERVICE.getEdustajat()
-                Log.d("EduskuntaViewModel", "Edustajat: $edustajatResult")
-                Log.d("EduskuntaViewModel", "Edustajat: ${edustajatResult.size}")
-                /**
-                 * Edustajat list for mapping it to UI
-                 */
-                _edustajat.value = edustajatResult.map { it }
+                repository.refreshMembers()
             } catch (e: Exception) {
-                Log.e("EduskuntaViewModel", "Error fetching edustajat: ${e.message}")
+                Log.e("EduskuntaViewModel", "Error refreshing members: ${e.message}")
+            }
+        }
+    }
+
+    fun getMembersByParty(party: String): StateFlow<List<MemberEntity>> {
+        return repository.getMembersByParty(party).stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = emptyList()
+        )
+    }
+
+    fun getMember(personNumber: Int): StateFlow<MemberEntity?> {
+        return repository.getMember(personNumber).stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = null
+        )
+    }
+
+    companion object {
+        fun provideFactory(repository: MemberRepository): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
+            @Suppress("UNCHECKED_CAST")
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                return EduskuntaViewModel(repository) as T
             }
         }
     }

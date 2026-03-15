@@ -31,8 +31,8 @@ fun PartyListScreen(
     onBack: () -> Unit,
     viewModel: EduskuntaViewModel,
 ) {
-    val edustajat by viewModel.edustajat.collectAsState()
-    val parties = edustajat.map { it.party }.distinct().sorted()
+    val members by viewModel.members.collectAsState()
+    val parties = members.map { it.party }.distinct().sorted()
 
     Scaffold(
         topBar = {
@@ -42,16 +42,17 @@ fun PartyListScreen(
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
                     }
-                }
+                },
+                modifier = Modifier.padding(horizontal = 24.dp)
             )
         }
     ) { paddingValues ->
-        if (edustajat.isEmpty()) {
+        if (members.isEmpty()) {
             Box(modifier = Modifier.fillMaxSize().padding(paddingValues)) {
                 CircularProgressIndicator(modifier = Modifier.padding(16.dp))
             }
         } else {
-            LazyColumn(modifier = Modifier.padding(paddingValues)) {
+            LazyColumn(modifier = Modifier.padding(paddingValues).padding(horizontal = 24.dp)) {
                 items(parties) { party ->
                     ListItem(
                         headlineContent = { Text(party) },

@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.example.eduskunta.ui.viewmodel.EduskuntaViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -29,8 +30,8 @@ fun MemberListScreen(
     viewModel: EduskuntaViewModel,
     modifier: Modifier = Modifier
 ) {
-    val edustajat by viewModel.edustajat.collectAsState()
-    val members = edustajat.filter { it.party == party }
+    val members by viewModel.members.collectAsState()
+    val filteredMembers = members.filter { it.party == party }
 
     Scaffold(
         topBar = {
@@ -40,12 +41,13 @@ fun MemberListScreen(
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
                     }
-                }
+                },
+                modifier = Modifier.padding(horizontal = 24.dp)
             )
         }
     ) { paddingValues ->
-        LazyColumn(modifier = Modifier.padding(paddingValues)) {
-            items(members) { member ->
+        LazyColumn(modifier = Modifier.padding(paddingValues).padding(horizontal = 24.dp)) {
+            items(filteredMembers) { member ->
                 ListItem(
                     headlineContent = { Text("${member.first} ${member.last}") },
                     supportingContent = { Text(member.constituency) },

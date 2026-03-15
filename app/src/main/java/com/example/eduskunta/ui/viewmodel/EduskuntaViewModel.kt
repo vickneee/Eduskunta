@@ -11,9 +11,13 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
+/**
+ * View model for the Eduskunta app.
+ * @param repository The repository to use for the view model.
+ */
 class EduskuntaViewModel(private val repository: MemberRepository) : ViewModel() {
 
-    val edustajat: StateFlow<List<MemberEntity>> = repository.allMembers.stateIn(
+    val members: StateFlow<List<MemberEntity>> = repository.allMembers.stateIn(
         scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(5000),
         initialValue = emptyList()
@@ -26,6 +30,9 @@ class EduskuntaViewModel(private val repository: MemberRepository) : ViewModel()
         refreshData()
     }
 
+    /**
+     * Refresh the data from the API.
+     */
     private fun refreshData() {
         viewModelScope.launch {
             try {
@@ -36,22 +43,10 @@ class EduskuntaViewModel(private val repository: MemberRepository) : ViewModel()
         }
     }
 
-    fun getMembersByParty(party: String): StateFlow<List<MemberEntity>> {
-        return repository.getMembersByParty(party).stateIn(
-            scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(5000),
-            initialValue = emptyList()
-        )
-    }
-
-    fun getMember(personNumber: Int): StateFlow<MemberEntity?> {
-        return repository.getMember(personNumber).stateIn(
-            scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(5000),
-            initialValue = null
-        )
-    }
-
+    /**
+     * Factory for creating [EduskuntaViewModel].
+     * @param repository The repository to use for the view model.
+     */
     companion object {
         fun provideFactory(repository: MemberRepository): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
             @Suppress("UNCHECKED_CAST")

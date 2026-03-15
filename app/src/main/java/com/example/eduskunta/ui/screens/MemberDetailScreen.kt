@@ -35,8 +35,8 @@ fun MemberDetailScreen(
     viewModel: EduskuntaViewModel,
     onBack: () -> Unit
 ) {
-    val edustajat by viewModel.edustajat.collectAsState()
-    val member = edustajat.find { it.personNumber == personNumber }
+    val members by viewModel.members.collectAsState()
+    val member = members.find { it.personNumber == personNumber }
 
     Scaffold(
         topBar = {
@@ -46,7 +46,8 @@ fun MemberDetailScreen(
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
                     }
-                }
+                },
+                modifier = Modifier.padding(horizontal = 24.dp)
             )
         }
     ) { paddingValues ->
@@ -54,7 +55,7 @@ fun MemberDetailScreen(
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(paddingValues),
+                    .padding(paddingValues).padding(horizontal = 24.dp),
                 contentAlignment = Alignment.Center
             ) {
                 CircularProgressIndicator()
@@ -63,7 +64,7 @@ fun MemberDetailScreen(
             LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(horizontal = 24.dp, vertical = 0.dp),
+                    .padding(paddingValues).padding(horizontal = 34.dp),
                 horizontalAlignment = Alignment.Start
             ) {
                 item {

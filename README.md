@@ -4,6 +4,10 @@ Eduskunta App is a simple Android application that demonstrates using navigation
 
 ## Screenshots
 
+<p align="center">
+<img src="./res/Screenshot_20260315_180934.png" width="35%" alt="Android Mobile App Screen - Eduskunta Navigations screen"/><img src="./res/Screenshot_20260315_182659.png" width="35%" alt="Android Mobile App Screen - Eduskunta Navigations screen"/>
+</p>
+
 ## Features
 - List of members with basic info (name, party, constituency)
 - Member detail screen with photo, party, constituency, minister status, and Twitter handle

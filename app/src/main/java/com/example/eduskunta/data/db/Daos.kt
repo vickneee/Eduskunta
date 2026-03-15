@@ -6,6 +6,9 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 
+/**
+ * Data Access Object for the member entity.
+ */
 @Dao
 interface MemberDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)

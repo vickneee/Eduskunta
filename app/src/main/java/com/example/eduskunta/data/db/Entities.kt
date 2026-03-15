@@ -3,7 +3,9 @@ package com.example.eduskunta.data.db
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-// Members Table - All Parliament members saved from API
+/**
+ * Entity representing a member of the Finnish parliament party.
+ */
 @Entity(tableName = "members")
 data class MemberEntity(
     @PrimaryKey

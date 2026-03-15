@@ -19,6 +19,9 @@ class EduskuntaViewModel(private val repository: MemberRepository) : ViewModel()
         initialValue = emptyList()
     )
 
+    /**
+     * Background Refresh of the data.
+     */
     init {
         refreshData()
     }

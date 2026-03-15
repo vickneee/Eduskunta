@@ -13,7 +13,13 @@ abstract class AppDatabase : RoomDatabase() {
 
     abstract fun memberDao(): MemberDao
 
+    /**
+     * Singleton instance of the database.
+     */
     companion object {
+        /**
+         * Volatile ensures that the instance is always up-to-date and visible to all threads.
+         */
         @Volatile
         private var INSTANCE: AppDatabase? = null
 

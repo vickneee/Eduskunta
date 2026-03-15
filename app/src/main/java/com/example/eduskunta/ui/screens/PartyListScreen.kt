@@ -55,7 +55,7 @@ fun PartyListScreen(
             LazyColumn(modifier = Modifier.padding(paddingValues).padding(horizontal = 24.dp)) {
                 items(parties) { party ->
                     ListItem(
-                        headlineContent = { Text(party) },
+                        headlineContent = { Text(party.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }) },
                         modifier = Modifier.clickable { onPartyClick(party) }
                     )
                     HorizontalDivider()

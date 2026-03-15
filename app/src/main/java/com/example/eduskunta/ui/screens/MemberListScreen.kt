@@ -20,6 +20,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.eduskunta.ui.viewmodel.EduskuntaViewModel
+import kotlin.text.replaceFirstChar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -36,7 +37,7 @@ fun MemberListScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(party) },
+                title = { Text(party.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")

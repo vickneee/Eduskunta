@@ -35,6 +35,10 @@ class EduskuntaViewModel(
         initialValue = emptyList()
     )
 
+    /**
+     * State flow of the notes.
+     * @property notes The state flow of the notes.
+     */
     val notes: StateFlow<List<NoteEntity>> = noteRepository.getAllNotesStream().stateIn(
         scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(5000),
@@ -86,6 +90,7 @@ class EduskuntaViewModel(
 
     /**
      * Background Refresh of the data.
+     * @property refreshData The function to refresh the data.
      */
     init {
         refreshData()
@@ -93,6 +98,9 @@ class EduskuntaViewModel(
 
     /**
      * Refresh the data from the API.
+     * @property viewModelScope The scope of the view model.
+     * @property repository The repository to use for the view model.
+     * @property refreshData The function to refresh the data.
      */
     private fun refreshData() {
         viewModelScope.launch {

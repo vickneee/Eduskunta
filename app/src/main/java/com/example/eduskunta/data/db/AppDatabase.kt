@@ -11,6 +11,7 @@ import com.example.eduskunta.data.db.entities.NoteEntity
 
 /**
  * Room database for the app.
+ * @property AppDatabase Singleton instance of the database.
  */
 @Database(
     entities = [MemberEntity::class, NoteEntity::class],
@@ -20,6 +21,10 @@ import com.example.eduskunta.data.db.entities.NoteEntity
 
 /**
  * Abstract class representing the database.
+ * @property getDatabase Returns the database instance.
+ * @property AppDatabase Singleton instance of the database.
+ * @property memberDao Returns the member DAO.
+ * @property noteDao Returns the note DAO.
  */
 abstract class AppDatabase : RoomDatabase() {
 
@@ -38,6 +43,8 @@ abstract class AppDatabase : RoomDatabase() {
 
         /**
          * Get the database instance. If it doesn't exist, create it.
+         * @param context The application context.
+         * @return The database instance.
          */
         fun getDatabase(context: Context): AppDatabase {
             return INSTANCE ?: synchronized(this) {

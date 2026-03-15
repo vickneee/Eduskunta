@@ -17,24 +17,29 @@ interface NoteDao {
 
     /**
      * Get all notes from the database.
+     * Flow is used to get updates on the data.
      */
     @Query("SELECT * FROM notes")
     fun getAllNotes(): Flow<List<NoteEntity>>
 
     /**
      * Add a note to the database.
+     * @param note The note to add.
      */
     @Insert
     suspend fun addNote(note: NoteEntity)
 
     /**
      * Get all notes for a member from the database.
+     * Flow is used to get updates on the data.
+     * @param personNumber The person number of the member.
      */
     @Query("SELECT * FROM notes WHERE personNumber = :personNumber")
     fun getNotesForMember(personNumber: Int): Flow<List<NoteEntity>>
 
     /**
      * Delete a note from the database.
+     * @param note The note to delete.
      * For future use.
      */
     @Delete

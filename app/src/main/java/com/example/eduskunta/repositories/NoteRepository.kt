@@ -15,16 +15,19 @@ interface NoteRepository {
 
     /**
      * Get notes for a member from the database.
+     * @param personNumber The person number of the member.
      */
     fun getNotesForMember(personNumber: Int): Flow<List<NoteEntity>>
 
     /**
      * Add a note to the database.
+     * @param note The note to add.
      */
     suspend fun addNote(note: NoteEntity)
 
     /**
      * Delete a note from the database.
+     * @param note The note to delete.
      * For future use.
      */
     suspend fun deleteNote(note: NoteEntity)

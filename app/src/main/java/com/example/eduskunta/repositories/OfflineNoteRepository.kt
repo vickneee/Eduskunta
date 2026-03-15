@@ -16,16 +16,19 @@ class OfflineNoteRepository(private val noteDao: NoteDao) : NoteRepository {
 
     /**
      * Get notes for a member from the database.
+     * @param personNumber The person number of the member.
      */
     override fun getNotesForMember(personNumber: Int): Flow<List<NoteEntity>> = noteDao.getNotesForMember(personNumber)
 
     /**
      * Add a note to the database.
+     * @param note The note to add.
      */
     override suspend fun addNote(note: NoteEntity) = noteDao.addNote(note)
 
     /**
      * Delete a note from the database.
+     * @param note The note to delete.
      * For future use.
      */
     override suspend fun deleteNote(note: NoteEntity) = noteDao.deleteNote(note)

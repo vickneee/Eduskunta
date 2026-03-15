@@ -26,6 +26,12 @@ interface EduskuntaApiService {
  * Singleton object for the API service.
  */
 object EduskuntaApi {
+
+    /**
+     * Retrofit instance.
+     * @property retrofit The Retrofit instance.
+     * @property RETROFIT_SERVICE The API service.
+     */
     private val retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(BASE_URL)

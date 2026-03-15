@@ -17,7 +17,7 @@ interface MemberDao {
      * Insert a list of members into
      * the database. If the member already exists, replace it.
      */
-    @Insert(onConflict = OnConflictStrategy.Companion.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(members: List<MemberEntity>)
 
     /**
@@ -28,12 +28,14 @@ interface MemberDao {
 
     /**
      * Get members by party from the database. Flow is used to get updates on the data.
+     * @param party The party to get members for.
      */
     @Query("SELECT * FROM members WHERE party = :party")
     fun getMembersByParty(party: String): Flow<List<MemberEntity>>
 
     /**
      * Get member by personNumber from the database. Flow is used to get updates on the data.
+     * @param personNumber The person number of the member.
      */
     @Query("SELECT * FROM members WHERE personNumber = :personNumber")
     fun getMember(personNumber: Int): Flow<MemberEntity?>

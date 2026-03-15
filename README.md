@@ -4,7 +4,7 @@ Eduskunta App is a simple Android application that demonstrates using navigation
 
 ## Features
 - Two-level browsing: Party → Members list
-- Member detail screen with photo, party, constituency, minister status, and Twitter handle
+- Member detail screen with photo, seat number, party, constituency, minister status, and Twitter handle
 - Notes per member with +/- indicator and text
 - Offline support with **Retrofit** and **Room database**
 - Smooth navigation between screens using **Jetpack Compose Navigation** 

@@ -34,7 +34,7 @@ Eduskunta App is a simple Android application that demonstrates using navigation
 <img src="./res/Screenshot_20260315_185019.png" width="35%" alt="Android Mobile App Screen - Eduskunta Navigations screen"/>
 </p>
 
-Android App structure:
+## Android App structure:
 
 ```text
 EduskuntaApp/
@@ -48,7 +48,7 @@ EduskuntaApp/
 └─ viewmodel/     <-- State management using ViewModel + StateFlow
 ```
 
-Notes
+### Notes
 -	The app fetches member data from a remote API using Retrofit and stores it locally in Room.
 -	The UI is fully scrollable and responsive.
 -	Navigation is implemented using Jetpack Compose Navigation.

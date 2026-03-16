@@ -30,6 +30,7 @@ android {
         }
     }
     compileOptions {
+        // Java Version updated
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
     }
@@ -43,7 +44,7 @@ dependencies {
     implementation(libs.retrofit)
     // Retrofit with Scalar Converter
     implementation(libs.converter.scalars)
-
+    // Retrofit with Gson Converter 
     implementation(libs.converter.gson)
 
     // Add viewmodel

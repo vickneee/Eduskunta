@@ -16,6 +16,7 @@ Eduskunta App is a simple Android application that demonstrates using navigation
 -	**Retrofit** (API calls)
 -	**Room** (Local database)
 -	**ViewModel + StateFlow** (State management)
+- 	**Dokka** (Auto-generated Kotlin documentation)
 
 ## Screenshots
 

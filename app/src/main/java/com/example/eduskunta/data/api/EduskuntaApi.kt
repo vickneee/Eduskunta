@@ -34,10 +34,12 @@ object EduskuntaApi {
      * @property retrofit The Retrofit instance.
      * @property RETROFIT_SERVICE The API service.
      */
-    private val retrofit = Retrofit.Builder()
+    private val retrofit by lazy {
+        Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(BASE_URL)
         .build()
+    }
 
     val RETROFIT_SERVICE: EduskuntaApiService by lazy {
         retrofit.create(EduskuntaApiService::class.java)

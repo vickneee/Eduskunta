@@ -4,6 +4,5 @@ plugins {
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.kotlin.kapt) apply false
     alias(libs.plugins.dokka) apply false
-    // KSP version
     alias(libs.plugins.ksp) apply false
 }

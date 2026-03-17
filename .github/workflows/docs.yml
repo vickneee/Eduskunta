@@ -28,7 +28,7 @@ jobs:
           java-version: 17
 
       - name: Build docs
-        run: ./gradlew dokkaGenerate
+        run: ./gradlew dokkaGenerate --no-daemon
 
       - name: Debug - List build output
         run: find . -path "*/dokka*" -type d | head -30

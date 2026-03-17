@@ -9,11 +9,13 @@ plugins {
 
 android {
     namespace = "com.example.eduskunta"
+    // Use 36
     compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.eduskunta"
         minSdk = 26
+        // Use 36
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
@@ -43,8 +45,6 @@ android {
 dependencies {
     // Retrofit
     implementation(libs.retrofit)
-//    // Retrofit with Scalar Converter
-//    implementation(libs.converter.scalars)
     // Retrofit with Gson Converter 
     implementation(libs.converter.gson)
 

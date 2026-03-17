@@ -33,6 +33,9 @@ jobs:
       - name: Debug - List build output
         run: find . -path "*/dokka*" -type d | head -30
 
+      - name: Debug - list dokka html contents
+        run: ls -la ./app/build/dokka/html/
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

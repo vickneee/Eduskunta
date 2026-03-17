@@ -30,6 +30,9 @@ jobs:
       - name: Build docs
         run: ./gradlew dokkaGenerate
 
+      - name: Debug - List build output
+        run: find . -path "*/dokka*" -type d | head -30
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

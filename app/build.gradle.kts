@@ -78,3 +78,13 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 }
+
+dokka {
+    moduleName.set("Eduskunta")
+    dokkaSourceSets {
+        register("main") {
+            sourceRoots.from(file("src/main/java"), file("src/main/kotlin"))
+            enableAndroidDocumentationLink.set(true)
+        }
+    }
+}
